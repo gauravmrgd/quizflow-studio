@@ -49,6 +49,7 @@
     --gradient-hero: linear-gradient(135deg, hsl(235 72% 20%), hsl(200 80% 30%));
     --gradient-accent: linear-gradient(135deg, hsl(185 72% 45%), hsl(235 72% 58%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 20% 97%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(0 0% 100% / 0.4));
 
     --shadow-sm: 0 1px 3px hsl(230 25% 12% / 0.06);
     --shadow-md: 0 4px 16px hsl(230 25% 12% / 0.08);
@@ -104,6 +105,7 @@
     --gradient-hero: linear-gradient(135deg, hsl(235 72% 10%), hsl(200 80% 15%));
     --gradient-accent: linear-gradient(135deg, hsl(185 72% 40%), hsl(235 72% 50%));
     --gradient-card: linear-gradient(145deg, hsl(230 20% 14%), hsl(230 20% 11%));
+    --gradient-glass: linear-gradient(135deg, hsl(230 20% 14% / 0.8), hsl(230 20% 14% / 0.4));
 
     --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.2);
     --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.25);
@@ -148,6 +150,9 @@
   .gradient-card {
     background: var(--gradient-card);
   }
+  .gradient-glass {
+    background: var(--gradient-glass);
+  }
   .shadow-card {
     box-shadow: var(--shadow-md);
   }
@@ -163,4 +168,55 @@
   .font-body {
     font-family: var(--font-body);
   }
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  .glass-strong {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out 2s infinite;
+}
+
+.animate-float-slow {
+  animation: float 10s ease-in-out 1s infinite;
+}
+
+/* Circular progress */
+.circular-progress {
+  transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+  transition: stroke-dashoffset 1s ease;
 }

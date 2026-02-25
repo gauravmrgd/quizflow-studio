@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 import QuizAttempt from "./pages/QuizAttempt";
 import Result from "./pages/Result";
 import Leaderboard from "./pages/Leaderboard";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
                 <Route path="/quiz/:id" element={<QuizAttempt />} />
                 <Route path="/result" element={<Result />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
+                <Route path="/admin" element={<Admin />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
