@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface TimerProps {
   totalSeconds: number;
@@ -20,6 +21,7 @@ const Timer = ({ totalSeconds, onTimeUp, isRunning }: TimerProps) => {
   const secs = seconds % 60;
   const pct = seconds / totalSeconds;
   const isLow = seconds < 30;
+  const isCritical = seconds < 10;
 
   // Circular progress
   const size = 80;
@@ -29,7 +31,11 @@ const Timer = ({ totalSeconds, onTimeUp, isRunning }: TimerProps) => {
   const dashOffset = circumference * (1 - pct);
 
   return (
-    <div className="flex items-center gap-4">
+    <motion.div
+      className="flex items-center gap-4"
+      animate={isCritical ? { scale: [1, 1.06, 1] } : {}}
+      transition={isCritical ? { duration: 0.8, repeat: Infinity, ease: "easeInOut" } : {}}
+    >
       <div className="relative flex h-20 w-20 items-center justify-center">
         <svg width={size} height={size} className="circular-progress">
           <circle
@@ -40,7 +46,7 @@ const Timer = ({ totalSeconds, onTimeUp, isRunning }: TimerProps) => {
             stroke="hsl(var(--muted))"
             strokeWidth={strokeWidth}
           />
-          <circle
+          <motion.circle
             cx={size / 2}
             cy={size / 2}
             r={radius}
@@ -49,7 +55,8 @@ const Timer = ({ totalSeconds, onTimeUp, isRunning }: TimerProps) => {
             strokeWidth={strokeWidth}
             strokeLinecap="round"
             strokeDasharray={circumference}
-            strokeDashoffset={dashOffset}
+            animate={{ strokeDashoffset: dashOffset }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           />
           <defs>
             <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -58,11 +65,17 @@ const Timer = ({ totalSeconds, onTimeUp, isRunning }: TimerProps) => {
             </linearGradient>
           </defs>
         </svg>
-        <span className={`absolute font-heading text-lg font-bold tabular-nums ${isLow ? "text-destructive" : "text-foreground"}`}>
+        {/* Glow ring when low */}
+        {isLow && (
+          <div className="absolute inset-0 rounded-full animate-pulse-glow" style={{
+            boxShadow: '0 0 20px hsl(var(--destructive) / 0.3)',
+          }} />
+        )}
+        <span className={`absolute font-heading text-lg font-bold tabular-nums transition-colors duration-300 ${isLow ? "text-destructive" : "text-foreground"}`}>
           {String(mins).padStart(2, "0")}:{String(secs).padStart(2, "0")}
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
